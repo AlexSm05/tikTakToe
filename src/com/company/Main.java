@@ -2,14 +2,26 @@ package com.company;
 
 import java.io.*;
 import java.util.ArrayList;
+// (Консольное приложение)
+// Крестики-нолики на двоих на поле 3х3 - игроки ходят по очереди, играют за одним компьютером. Интерфейс полностью текстовый, приложение работает в консоли.
+// При запуске приложения игрок попадает в меню с тремя пунктами:
+// Играть
+// История
+// Выход
+
+// Игрок вводит номер пункта, которій он выбрал.
+// Пункт "Играть" начинает новую игру. Сперва оба игрока вводят свои имена, затем по очереди ставят крестики/нолики в клетки поля. Как только кто-то победил - результат игры (итоговый вид игрового поля, имена игроков, победитель) записываются в файл. Все игры записываются в один файл.
+// После каждой игры следует спрашивать о необходимости новой игры. При отрицательном ответе - завершать работу приложения.
+
+// Пункт "История" выводит информацию о всех играх, что были ранее. Все данные из файла следует загрузить в память при запуске приложения и выводить их при запросе (т.е. чтение файла происходит лишь при запуске).
+
+// Пункт "Выход" завершает работу приложения.
 
 
 
 
 public class Main {
-//    static int [] canvas = {0,0,0,
-//            0,0,0,
-//            0,0,0};
+
     public static void main(String[] args) {
 	// write your code here
         String file="E://history.txt";
@@ -97,95 +109,5 @@ public class Main {
                 System.exit(0);
                 break;
         }
-
-
-//        boolean b;
-//        boolean isCurrentX = false;
-//        Game game=new Game();
-//        do {
-//            isCurrentX = !isCurrentX;
-//            game.drawCanvas();
-//            System.out.println("mark " + (isCurrentX ? "X" : "O"));
-//            int n = getNumber();
-//            canvas[n] = isCurrentX ? 1 : 2;
-//            b = !game.isGameOver(n);
-//            if (isDraw()){
-//                System.out.println("Draw");
-//                return;
-//            }
-//        } while (b);
-//        game.drawCanvas();
-//        System.out.println();
-//
-//        System.out.println("The winner is " + (isCurrentX ? "X" : "O") + "!");
-//    }
-
-//    static int getNumber(){
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//        while (true){
-//            try {
-//                int n = Integer.parseInt(reader.readLine());
-//                if (n >= 0 && n < canvas.length && canvas[n]==0){
-//                    return n;
-//                }
-//                System.out.println("Choose free cell and enter its number");
-//            } catch (NumberFormatException e) {
-//                System.out.println("Please enter the number");
-//            } catch (IOException e) {
-//            }
-//        }
-//    }
-//
-//    static boolean isGameOver(int n){
-//        // 0 1 2
-//        // 3 4 5
-//        // 6 7 8
-//        //поиск совпадений по горизонтали
-//        int row = n-n%3; //номер строки - проверяем только её
-//        if (canvas[row]==canvas[row+1] &&
-//                canvas[row]==canvas[row+2]) return true;
-//        //поиск совпадений по вертикали
-//        int column = n%3; //номер столбца - проверяем только его
-//        if (canvas[column]==canvas[column+3])
-//            if (canvas[column]==canvas[column+6]) return true;
-//        //мы здесь, значит, первый поиск не положительного результата
-//        //если значение n находится на одной из граней - возвращаем false
-//        if (n%2!=0) return false;
-//        //проверяем принадлежит ли к левой диагонали значение
-//        if (n%4==0){
-//            //проверяем есть ли совпадения на левой диагонали
-//            if (canvas[0] == canvas[4] &&
-//                    canvas[0] == canvas[8]) return true;
-//            if (n!=4) return false;
-//        }
-//        return canvas[2] == canvas[4] &&
-//                canvas[2] == canvas[6];
-//    }
-//
-//    static void drawCanvas(){
-//        System.out.println("     |     |     ");
-//        for (int i = 0; i < canvas.length; i++) {
-//            if (i!=0){
-//                if (i%3==0) {
-//                    System.out.println();
-//                    System.out.println("_____|_____|_____");
-//                    System.out.println("     |     |     ");
-//                }
-//                else
-//                    System.out.print("|");
-//            }
-//
-//            if (canvas[i]==0) System.out.print("  " + i + "  ");
-//            if (canvas[i]==1) System.out.print("  X  ");
-//            if (canvas[i]==2) System.out.print("  O  ");
-//        }
-//        System.out.println();
-//        System.out.println("     |     |     ");
-//    }
-//
-//    public static boolean isDraw() {
-//        for (int n : canvas) if (n==0) return false;
-//        return true;
-//    }
 }}
 
